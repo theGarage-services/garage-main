@@ -74,9 +74,9 @@ export function LandingPage({ onGetStarted, onLogin, onViewAbout, isAuthenticate
                   </Button>
                 ) : (
                   <>
-                    <Button variant="ghost" onClick={onLogin} className="text-[#9E9B98] hover:text-[#1A1A1A] hover:bg-[#F5F3F1]">
+                    {/* <Button variant="ghost" onClick={onLogin} className="text-[#9E9B98] hover:text-[#1A1A1A] hover:bg-[#F5F3F1]">
                       Sign In
-                    </Button>
+                    </Button> */}
                     <Button 
                       onClick={onGetStarted}
                       className="bg-gradient-to-r from-[#FF6000] to-[#FF8533] hover:from-[#FF7A1F] hover:to-[#FF9D4D] text-white"
