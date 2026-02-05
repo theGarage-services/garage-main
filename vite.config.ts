@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import path from 'path';
+import path from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/garage-frontend/',
   
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
