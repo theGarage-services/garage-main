@@ -4,7 +4,7 @@ import path from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/theGarage-services.github.io/',
+  base: '/garage-frontend/',
   
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
