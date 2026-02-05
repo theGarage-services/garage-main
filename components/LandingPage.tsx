@@ -14,7 +14,7 @@ interface LandingPageProps {
   onBackToApp?: () => void;
 }
 
-export function LandingPage({ onGetStarted, onLogin, onViewAbout, isAuthenticated = false, onBackToApp }: Readonly<LandingPageProps>) {
+export function LandingPage({ onGetStarted, onViewAbout, isAuthenticated = false, onBackToApp }: Readonly<LandingPageProps>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
 
