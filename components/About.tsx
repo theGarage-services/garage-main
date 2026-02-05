@@ -45,7 +45,7 @@ export function About({ onGetStarted, onLogin, onNavigateToLanding, isAuthentica
     {
       name: "Ray Asuma",
       role: "CEO & Co-Founder",
-      image: "/garage-frontend/Ray.JPEG",
+      image: "/Ray.JPEG",
       bio: "Visionary leader driving theGarage's mission to revolutionize recruitment.",
       expertise: ["Leadership", "Compliance", "Law"],
       linkedin: "https://www.linkedin.com/in/rayasuma/"
@@ -53,7 +53,7 @@ export function About({ onGetStarted, onLogin, onNavigateToLanding, isAuthentica
     {
       name: "Declan Kintu",
       role: "CTO & Co-Founder",
-      image: "/garage-frontend/Declan.JPEG",
+      image: "/Declan.JPEG",
       bio: "Engineering excellence powering our platform's cutting-edge technology.",
       expertise: ["System Architecture", "AI", "Scale"],
       linkedin: "https://www.linkedin.com/in/declan-trevor-kintu/"
@@ -61,7 +61,7 @@ export function About({ onGetStarted, onLogin, onNavigateToLanding, isAuthentica
     {
       name: "Michelle Cheng",
       role: "AI Lead & Co-Founder",
-      image: "/garage-frontend/Michelle.JPEG",
+      image: "/Michelle.JPEG",
       bio: "AI expert creating intelligent matching systems for perfect career connections.",
       expertise: ["AI/ML", "Data Science", "Algorithms"],
       linkedin: "https://www.linkedin.com/in/michelle-cheng-643878119/"
@@ -69,7 +69,7 @@ export function About({ onGetStarted, onLogin, onNavigateToLanding, isAuthentica
     {
       name: "Sandile Ngwenya",
       role: "CSO",
-      image: "/garage-frontend/Sandile.jpg",
+      image: "/Sandile.jpg",
       bio: "Guardian of our platform, ensuring secure and trusted experiences for all users.",
       expertise: ["Security", "Privacy", "Compliance"],
       linkedin: "https://www.linkedin.com/in/sandile-ngwenya-a00666296/"
@@ -77,7 +77,7 @@ export function About({ onGetStarted, onLogin, onNavigateToLanding, isAuthentica
     {
       name: "Thandizo Henderson",
       role: "CMO",
-      image: "/garage-frontend/Thandizo.JPEG",
+      image: "/Thandizo.JPEG",
       bio: "Building communities and fostering connections that transform careers.",
       expertise: ["Marketing", "Branding", "Engagement"],
       linkedin: "https://www.linkedin.com/in/thandizo/"
