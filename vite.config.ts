@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/theGarage-services.github.io/'
+  
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
@@ -83,7 +83,7 @@ export default defineConfig({
 
   build: {
     target: 'esnext',
-    outDir: 'build',
+    outDir: 'docs',
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
