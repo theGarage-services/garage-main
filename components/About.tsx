@@ -571,7 +571,7 @@ export function About({ onGetStarted, onNavigateToLanding, isAuthenticated, onBa
               Join thousands of professionals who are already experiencing the future of recruitment.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button 
                 onClick={onGetStarted}
                 size="lg"
@@ -580,18 +580,18 @@ export function About({ onGetStarted, onNavigateToLanding, isAuthenticated, onBa
                 Start Your Journey
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              {/* <Button 
+              <Button 
                 onClick={onLogin}
                 variant="outline"
                 size="lg"
                 className="border-[#E8E5E2] text-[#1A1A1A] hover:bg-[#F5F3F1] hover:border-[#FF6000] px-12 py-6 text-lg"
               >
                 Sign In
-              </Button> */}
-            </div>
+              </Button>
+            </div> */}
 
             <p className="text-sm text-[#9E9B98] italic">
-              "Life Should Be Easy"
+              "It gets better!"
             </p>
           </motion.div>
         </div>
