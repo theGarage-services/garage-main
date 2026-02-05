@@ -28,7 +28,7 @@ interface AboutProps {
   onBackToApp?: () => void;
 }
 
-export function About({ onGetStarted, onLogin, onNavigateToLanding, isAuthenticated, onBackToApp }: Readonly<AboutProps>) {
+export function About({ onGetStarted, onNavigateToLanding, isAuthenticated, onBackToApp }: Readonly<AboutProps>) {
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -580,14 +580,14 @@ export function About({ onGetStarted, onLogin, onNavigateToLanding, isAuthentica
                 Start Your Journey
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button 
+              {/* <Button 
                 onClick={onLogin}
                 variant="outline"
                 size="lg"
                 className="border-[#E8E5E2] text-[#1A1A1A] hover:bg-[#F5F3F1] hover:border-[#FF6000] px-12 py-6 text-lg"
               >
                 Sign In
-              </Button>
+              </Button> */}
             </div>
 
             <p className="text-sm text-[#9E9B98] italic">
