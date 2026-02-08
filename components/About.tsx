@@ -267,7 +267,7 @@ export function About({ onGetStarted, onNavigateToLanding, isAuthenticated, onBa
                 transition={{ delay: 0.5 }}
                 className="text-sm text-[#9E9B98] italic mb-8"
               >
-                "Life Should Be Easy"
+                "It gets better!"
               </motion.div>
 
               <motion.div

@@ -272,8 +272,8 @@ export function LandingPage({ onGetStarted, onViewAbout, isAuthenticated = false
               },
               {
                 icon: <Zap className="h-12 w-12" />,
-                title: 'Job Recommendations & Auto-Apply',
-                description: 'The app then surfaces matching jobs (within those streams) ranked by fit. It auto-apply for recommended roles.',
+                title: 'Tailored Job Recommendations',
+                description: 'The app then surfaces matching jobs (within those streams) ranked by fit. It auto-matches applicants to recommended roles.',
                 color: 'from-[#469AF9] to-[#6BB0FF]',
               },
               {
