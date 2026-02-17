@@ -27,8 +27,8 @@ jobs:
     - name: Install dependencies
       run: npm install --legacy-peer-deps
     
-    - name: Update dependencies
-      run: npm audit fix --force
+    # - name: Update dependencies
+    #   run: npm audit fix --force
 
     - name: Build project
       run: npm run build
