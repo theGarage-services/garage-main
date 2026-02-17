@@ -14,7 +14,7 @@ interface LandingPageProps {
   onBackToApp?: () => void;
 }
 
-export function LandingPage({ onGetStarted, onViewAbout, isAuthenticated = false, onBackToApp }: Readonly<LandingPageProps>) {
+export function LandingPage({ onViewAbout, isAuthenticated = false, onBackToApp }: Readonly<LandingPageProps>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
 
@@ -76,13 +76,13 @@ export function LandingPage({ onGetStarted, onViewAbout, isAuthenticated = false
                   <>
                     {/* <Button variant="ghost" onClick={onLogin} className="text-[#9E9B98] hover:text-[#1A1A1A] hover:bg-[#F5F3F1]">
                       Sign In
-                    </Button> */}
+                    </Button>
                     <Button 
                       onClick={onGetStarted}
                       className="bg-gradient-to-r from-[#FF6000] to-[#FF8533] hover:from-[#FF7A1F] hover:to-[#FF9D4D] text-white"
                     >
                       Get Started Free
-                    </Button>
+                    </Button> */}
                   </>
                 )}
               </div>

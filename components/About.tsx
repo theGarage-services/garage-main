@@ -28,7 +28,7 @@ interface AboutProps {
   onBackToApp?: () => void;
 }
 
-export function About({ onGetStarted, onNavigateToLanding, isAuthenticated, onBackToApp }: Readonly<AboutProps>) {
+export function About({ onNavigateToLanding, isAuthenticated, onBackToApp }: Readonly<AboutProps>) {
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -164,13 +164,13 @@ export function About({ onGetStarted, onNavigateToLanding, isAuthenticated, onBa
                       className="text-[#9E9B98] hover:text-[#1A1A1A] hover:bg-[#F5F3F1]"
                     >
                       Sign In
-                    </Button> */}
+                    </Button>
                     <Button 
                       onClick={onGetStarted}
                       className="bg-gradient-to-r from-[#FF6000] to-[#FF8533] hover:from-[#FF7A1F] hover:to-[#FF9D4D] text-white"
                     >
                       Get Started Free
-                    </Button>
+                    </Button> */}
                   </>
                 )}
               </div>
