@@ -1,6 +1,6 @@
 // Get window dimensions for web
 const getWindowDimensions = () => {
-  if (typeof window !== 'undefined') {
+  if (undefined !== globalThis.window) {
     return {
       width: window.innerWidth,
       height: window.innerHeight,

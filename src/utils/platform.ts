@@ -36,7 +36,6 @@ export const platformUtils = {
           url: content.url,
         });
       } catch (error) {
-        console.error('Error sharing:', error);
       }
     } else {
       // Fallback to copying to clipboard
