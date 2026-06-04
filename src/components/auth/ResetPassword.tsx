@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
@@ -344,7 +345,7 @@ function ResetPasswordForm({
 
 export function ResetPassword({ onBack, token: propToken }: Readonly<ResetPasswordProps>) {
   // Get token from URL or prop
-  const urlParams = new URLSearchParams(globalThis.location.search);
+  const [urlParams] = useSearchParams();
   const token = propToken || urlParams.get('token');
   
   const [password, setPassword] = useState('');

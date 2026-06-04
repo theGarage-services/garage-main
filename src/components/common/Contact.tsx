@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
@@ -15,6 +16,7 @@ interface ContactProps {
 }
 
 export function Contact({ onBack }: Readonly<ContactProps>) {
+  const navigate = useNavigate();
   const [contactSubject, setContactSubject] = useState('');
   const [contactMessage, setContactMessage] = useState('');
   const [contactType, setContactType] = useState('general');
@@ -66,13 +68,13 @@ export function Contact({ onBack }: Readonly<ContactProps>) {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <button 
-                onClick={() => globalThis.location.href = '/'}
+                onClick={() => navigate('/')}
                 className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors"
               >
                 Home
               </button>
               <button 
-                onClick={() => globalThis.location.href = '/about'}
+                onClick={() => navigate('/about')}
                 className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors"
               >
                 About
@@ -95,7 +97,7 @@ export function Contact({ onBack }: Readonly<ContactProps>) {
                 <button 
                   onClick={() => {
                     setIsMenuOpen(false);
-                    globalThis.location.href = '/';
+                    navigate('/');
                   }}
                   className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors text-left"
                 >
@@ -104,7 +106,7 @@ export function Contact({ onBack }: Readonly<ContactProps>) {
                 <button 
                   onClick={() => {
                     setIsMenuOpen(false);
-                    globalThis.location.href = '/about';
+                    navigate('/about');
                   }}
                   className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors text-left"
                 >
@@ -113,7 +115,7 @@ export function Contact({ onBack }: Readonly<ContactProps>) {
                 <Button 
                   onClick={() => {
                     setIsMenuOpen(false);
-                    globalThis.location.href = '/auth/role-select?role=job-seeker&intent=login';
+                    navigate('/auth/role-select?role=job-seeker&intent=login');
                   }}
                   className="bg-gradient-to-r from-[#FF6000] to-[#FF8533] hover:from-[#FF7A1F] hover:to-[#FF9D4D] text-white"
                 >

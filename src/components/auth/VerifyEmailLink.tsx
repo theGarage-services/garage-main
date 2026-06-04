@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Loader, CheckCircle, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Button } from '../ui/button';
@@ -9,12 +10,14 @@ interface VerifyEmailLinkProps {
 }
 
 export function VerifyEmailLink({ token: propToken, onBack }: Readonly<VerifyEmailLinkProps>) {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [message, setMessage] = useState('Verifying your email...');
 
   useEffect(() => {
     // Use token from props if provided, otherwise fall back to URL search params
-    const token = propToken || new URLSearchParams(globalThis.location.search).get('token');
+    const token = propToken || searchParams.get('token');
 
     if (!token) {
       setStatus('error');
@@ -68,7 +71,7 @@ export function VerifyEmailLink({ token: propToken, onBack }: Readonly<VerifyEma
             <p className="text-gray-600 mb-4">{message}</p>
             <p className="text-sm text-gray-500 mb-4">You can now continue with your registration.</p>
             <Button
-              onClick={onBack || (() => globalThis.location.href = '/')}
+              onClick={onBack || (() => navigate('/'))}
               className="w-full"
             >
               Continue to Sign Up
@@ -84,7 +87,7 @@ export function VerifyEmailLink({ token: propToken, onBack }: Readonly<VerifyEma
             </Alert>
             <div className="space-y-2">
               <Button
-                onClick={onBack || (() => globalThis.location.href = '/')}
+                onClick={onBack || (() => navigate('/'))}
                 variant="outline"
                 className="w-full"
               >
