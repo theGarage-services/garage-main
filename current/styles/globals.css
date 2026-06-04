@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* theGarage Brand Colors - CSS Variables for React Native Web compatibility */
+:root {
+  /* Primary Brand Colors */
+  --color-primary-orange: #FD6F6C;
+  --color-primary-orange-light: #FE8C89;
+  --color-primary-orange-dark: #FC5855;
+  --color-complementary-blue: #469AF9;
+  --color-complementary-blue-light: #6AADFA;
+  --color-complementary-blue-dark: #2287F8;
+  
+  /* Neutrals */
+  --color-off-white: #FBF9F7;
+  --color-off-white-tint: #FFF5F2;
+  --color-black: #1A1A1A;
+  --color-gray-light: #E8E5E2;
+  --color-gray-medium: #9E9B98;
+  --color-gray-dark: #545250;
+  
+  /* Background colors */
+  --color-background: #FBF9F7;
+  --color-background-tint: #FFF5F2;
+  --color-foreground: #1A1A1A;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1A1A1A;
+  
+  /* Semantic colors */
+  --color-primary: #FD6F6C;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #469AF9;
+  --color-secondary-foreground: #FFFFFF;
+  --color-muted: #F5F3F1;
+  --color-muted-foreground: #9E9B98;
+  --color-accent: #FD6F6C;
+  --color-accent-foreground: #FFFFFF;
+  --color-border: #E8E5E2;
+  --color-input: #FFFFFF;
+  --color-ring: #FD6F6C;
+  
+  /* Legacy support - map old orange vars to new */
+  --color-warm-orange: #FD6F6C;
+  --color-warm-orange-light: #FE8C89;
+  --color-warm-orange-dark: #FC5855;
+  --color-deep-orange: #FC5855;
+  --color-ocean-blue: #1A1A1A;
+  --color-ocean-blue-light: #545250;
+  
+  /* Typography */
+  --font-satoshi: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-source-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* theGarage Utility Classes */
+.text-warm-orange { color: var(--color-primary-orange) !important; }
+.bg-warm-orange { background-color: var(--color-primary-orange) !important; }
+.border-warm-orange { border-color: var(--color-primary-orange) !important; }
+.hover\:bg-warm-orange:hover { background-color: var(--color-primary-orange) !important; }
+.hover\:text-warm-orange:hover { color: var(--color-primary-orange) !important; }
+
+.text-warm-orange-light { color: var(--color-primary-orange-light) !important; }
+.bg-warm-orange-light { background-color: var(--color-primary-orange-light) !important; }
+.border-warm-orange-light { border-color: var(--color-primary-orange-light) !important; }
+
+.text-warm-orange-dark { color: var(--color-primary-orange-dark) !important; }
+.bg-warm-orange-dark { background-color: var(--color-primary-orange-dark) !important; }
+.border-warm-orange-dark { border-color: var(--color-primary-orange-dark) !important; }
+.hover\:bg-warm-orange-dark:hover { background-color: var(--color-primary-orange-dark) !important; }
+
+/* New Primary Orange Utilities */
+.text-primary-orange { color: var(--color-primary-orange) !important; }
+.bg-primary-orange { background-color: var(--color-primary-orange) !important; }
+.border-primary-orange { border-color: var(--color-primary-orange) !important; }
+.hover\:bg-primary-orange:hover { background-color: var(--color-primary-orange) !important; }
+
+/* Complementary Blue Utilities */
+.text-blue { color: var(--color-complementary-blue) !important; }
+.bg-blue { background-color: var(--color-complementary-blue) !important; }
+.border-blue { border-color: var(--color-complementary-blue) !important; }
+.hover\:bg-blue:hover { background-color: var(--color-complementary-blue) !important; }
+.hover\:bg-blue-dark:hover { background-color: var(--color-complementary-blue-dark) !important; }
+
+/* Additional utility for borders */
+.border-l-warm-orange { border-left-color: var(--color-primary-orange) !important; }
+
+/* Base styles for web compatibility */
+@layer base {
+  * {
+    @apply border-border;
+    outline-color: theme('colors.ring');
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    /* Prevent layout shift when modals open by reserving space for scrollbar */
+    scrollbar-gutter: stable;
+  }
+  
+  /* Prevent header from shifting when body scroll is locked */
+  html {
+    overflow-y: scroll;
+  }
+  
+  /* Web-specific typography that won't conflict with React Native */
+  h1 { 
+    font-family: var(--font-satoshi);
+    @apply text-2xl font-semibold; 
+  }
+  h2 { 
+    font-family: var(--font-satoshi);
+    @apply text-xl font-semibold; 
+  }
+  h3 { 
+    font-family: var(--font-satoshi);
+    @apply text-lg font-semibold; 
+  }
+  h4 { 
+    font-family: var(--font-satoshi);
+    @apply text-base font-semibold; 
+  }
+  p { 
+    font-family: var(--font-source-sans);
+    @apply text-base; 
+  }
+}
+
+/* Fixed header compensation - add top padding to body when header is fixed */
+body:has(header[class*="fixed"]) {
+  padding-top: 64px;
+}
+
+/* Prevent layout shift when Radix UI modals lock scroll */
+body[data-scroll-locked] {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Ensure fixed header doesn't shift when body scroll is locked */
+header[class*="fixed"] {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Screen reader utilities for accessibility */
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
