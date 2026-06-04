@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext, ReactNode } from 'react';
+import { useState, useMemo, createContext, useContext, ReactNode } from 'react';
 import { PermissionModule } from '../types/team';
 
 // Mock current user - In production, this would come from auth context
@@ -97,9 +97,7 @@ export const MOCK_HR_ADMIN: TestUser = {
 
 // Provider component
 export function TestPermissionsProvider({ children }: Readonly<{ children: ReactNode }>) {
-  const userState = useState<TestUser>(MOCK_MASTER_USER);
-  const currentUser: TestUser = userState[0];
-  const setCurrentUser: React.Dispatch<React.SetStateAction<TestUser>> = userState[1];
+  const [currentUser, setCurrentUser] = useState<TestUser>(MOCK_MASTER_USER);
 
   const hasPermission = (permission: PermissionModule): boolean => {
     // Master profile has all permissions
@@ -130,17 +128,21 @@ export function TestPermissionsProvider({ children }: Readonly<{ children: React
     return currentUser.assignedJobs.includes(jobId);
   };
 
+  // Memoize context value to prevent unnecessary re-renders
+  const contextValue = useMemo(
+    () => ({
+      currentUser,
+      setCurrentUser,
+      hasPermission,
+      hasAnyPermission,
+      hasAllPermissions,
+      canAccessJob,
+    }),
+    [currentUser, setCurrentUser, hasPermission, hasAnyPermission, hasAllPermissions, canAccessJob]
+  );
+
   return (
-    <TestPermissionsContext.Provider
-      value={{
-        currentUser,
-        setCurrentUser,
-        hasPermission,
-        hasAnyPermission,
-        hasAllPermissions,
-        canAccessJob,
-      }}
-    >
+    <TestPermissionsContext.Provider value={contextValue}>
       {children}
     </TestPermissionsContext.Provider>
   );

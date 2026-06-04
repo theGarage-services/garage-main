@@ -24,10 +24,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@components/*": ["./components/*"],
-      "@ui/*": ["./components/ui/*"]
+      "@components/*": ["./src/components/*"],
+      "@ui/*": ["./src/components/ui/*"]
     }
   },
-  "include": ["src", "components", "hooks", "types", "App.tsx", "main.tsx", "vite-env.d.ts"],
+  "include": ["src", "hooks", "types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
