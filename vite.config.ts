@@ -102,8 +102,8 @@ export default defineConfig(({ mode }) => {
             if (id.includes('lucide-react') || id.includes('class-variance-authority') || id.includes('clsx') || id.includes('tailwind-merge')) {
               return 'ui-utils';
             }
-            // React core packages only (not dependencies)
-            if (/[\\/]node_modules[\\/](react|react-dom|react-router)[\\/]/.test(id)) {
+            // React core packages (keep them together to avoid circular chunk deps)
+            if (/[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom)[\\/]/.test(id)) {
               return 'react-vendor';
             }
             // Other third-party libraries
