@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: '/garage-main',
+    base: '/',
   
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
