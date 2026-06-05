@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
@@ -8,6 +9,7 @@ import { Search, HelpCircle, Zap, Users, Lightbulb, Target, Menu, X } from 'luci
 import { Footer } from '../layout/Footer';
 
 export function FAQ() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -92,13 +94,13 @@ export function FAQ() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <button 
-                onClick={() => globalThis.location.href = '/'}
+                onClick={() => navigate('/')}
                 className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors"
               >
                 Home
               </button>
               <button 
-                onClick={() => globalThis.location.href = '/about'}
+                onClick={() => navigate('/about')}
                 className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors"
               >
                 About
@@ -121,7 +123,7 @@ export function FAQ() {
                 <button 
                   onClick={() => {
                     setIsMenuOpen(false);
-                    globalThis.location.href = '/';
+                    navigate('/');
                   }}
                   className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors text-left"
                 >
@@ -130,7 +132,7 @@ export function FAQ() {
                 <button 
                   onClick={() => {
                     setIsMenuOpen(false);
-                    globalThis.location.href = '/about';
+                    navigate('/about');
                   }}
                   className="text-[#9E9B98] hover:text-[#1A1A1A] transition-colors text-left"
                 >

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { oauthService } from '../../api/oauth';
 
 interface OAuthCallbackProps {
@@ -8,6 +9,8 @@ interface OAuthCallbackProps {
 }
 
 export function OAuthCallback({ onOAuthSuccess, onOAuthError, role }: Readonly<OAuthCallbackProps>) {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const isProcessingRef = useRef(false); // NEW: Use ref for more reliable prevention
@@ -29,10 +32,9 @@ export function OAuthCallback({ onOAuthSuccess, onOAuthError, role }: Readonly<O
         }
         
         // Check URL parameters first
-        const urlParams = new URLSearchParams(globalThis.location.search);
-        const code = urlParams.get('code');
-        const state = urlParams.get('state');
-        const error = urlParams.get('error');
+        const code = searchParams.get('code');
+        const state = searchParams.get('state');
+        const error = searchParams.get('error');
         
         
         if (error) {
@@ -83,7 +85,7 @@ export function OAuthCallback({ onOAuthSuccess, onOAuthError, role }: Readonly<O
           <h2 className="text-xl font-semibold text-gray-900 mb-2">OAuth Authentication Failed</h2>
           <p className="text-gray-600 mb-4">{error}</p>
           <button
-            onClick={() => globalThis.location.href = '/'}
+            onClick={() => navigate('/')}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
             Return to Home

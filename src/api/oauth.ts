@@ -19,6 +19,17 @@ export interface OAuthResponse {
   created: boolean;
 }
 
+// Helper to get search params that works with both BrowserRouter and HashRouter
+function getSearchParams(): URLSearchParams {
+  // For HashRouter, query params are in the hash fragment (e.g. #/path?foo=bar)
+  const hash = globalThis.location.hash;
+  if (hash.includes('?')) {
+    return new URLSearchParams(hash.split('?')[1]);
+  }
+  // Fallback for BrowserRouter
+  return new URLSearchParams(globalThis.location.search);
+}
+
 export class OAuthService {
   // Initiate Google OAuth login
   async initiateGoogleOAuth() {
@@ -83,22 +94,22 @@ export class OAuthService {
 
   // Handle OAuth callback from redirect
   async handleOAuthRedirect(role?: string) {
-    
+
     // Get role from parameter or session storage
-    const urlRole = new URLSearchParams(globalThis.location.search).get('role');
+    const urlRole = getSearchParams().get('role');
     const sessionRole = sessionStorage.getItem('oauth_role');
-    
-    
-    
+
+
+
     // Use the first available role source, no default fallback
     const finalRole = role || urlRole || sessionRole;
-    
-    
+
+
     if (!finalRole) {
       throw new Error('No role found for OAuth authentication');
     }
-    
-    const urlParams = new URLSearchParams(globalThis.location.search);
+
+    const urlParams = getSearchParams();
     const code = urlParams.get('code');
     const state = urlParams.get('state');
     const error = urlParams.get('error');
@@ -128,8 +139,15 @@ export class OAuthService {
     sessionStorage.removeItem('oauth_state');
     sessionStorage.removeItem('oauth_role');
 
-    // Clean up URL
-    globalThis.history.replaceState({}, document.title, globalThis.location.pathname);
+    // Clean up URL (hash-aware for HashRouter compatibility)
+    const hash = globalThis.location.hash;
+    if (hash.includes('?')) {
+      // Strip query params from hash while preserving the route
+      const cleanHash = hash.split('?')[0];
+      globalThis.location.hash = cleanHash;
+    } else {
+      globalThis.history.replaceState({}, document.title, globalThis.location.pathname);
+    }
 
     return oauthResponse;
   }
